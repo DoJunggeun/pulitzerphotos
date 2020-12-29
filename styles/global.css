@@ -1,0 +1,100 @@
+html {
+	justify-content:center;
+	min-height:80vh;
+}
+body {
+	position:relative;
+	padding: 0;
+	margin: auto;
+	max-width:500px;
+	min-height:80vh;
+}
+
+/* @media (prefers-color-scheme: light) {
+  body {
+    background: rgb(245,245,245);
+    color: black;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    background: rgb(30,30,30);
+    color: white;
+  }
+}
+ */
+a {
+	color: rgb(45,136,255);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	margin-top:20px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+h1, h2 {
+	margin: 10px;
+}
+
+.content {
+	padding: 4px;
+	text-align: center;
+	justify-content: center;
+}
+
+.buttons {
+	position: relative;
+	width: 100%;
+	flex-direction: column;
+	margin-bottom:80px;
+}
+
+.photoTitle {
+	font-size: 1.6rem;
+	margin-bottom:0;
+}
+.photoAuthor {
+	font-size: 1rem;
+}
+
+
+.next {
+	float: left;
+	width: 50%;
+	line-height: 1.5;
+	font-size: 1.5rem;
+	text-align: right;
+}
+.previous {
+	float: left;
+	width: 50%;
+	line-height: 1.5;
+	font-size: 1.5rem;
+	text-align: left;
+}
+
+.gohome {
+	line-height: 1.5;
+	font-size: 1.4rem;
+}
+
+.setTheme {
+	position:absolute;
+	right: 10px;
+	bottom: 10px;
+}
+.setThemeTop {
+	position:relative;
+	top: 47px;
+}
+.homeButton {
+	width:100%;
+}
