@@ -57,7 +57,7 @@ export default function Post({ postData }) {
 							<a>next</a>
 						</Link>
 					</div>
-					<Link href="/photo">
+					<Link href="/photo#photos">
 						<a className="gohome">View full list</a>
 					</Link>
 					<br />

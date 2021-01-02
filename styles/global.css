@@ -33,7 +33,13 @@ a {
 a:hover {
 	text-decoration: underline;
 }
-
+.displayImage {
+	max-width: 100%;
+	display: block;
+	margin-top:20px;
+	margin-left:auto;
+	margin-right:auto;
+}
 img {
 	max-width: 100%;
 	display: block;
@@ -53,6 +59,7 @@ h1, h2 {
 }
 
 .buttons {
+	margin:auto;
 	position: relative;
 	width: 100%;
 	flex-direction: column;
@@ -89,14 +96,16 @@ h1, h2 {
 }
 
 .setTheme {
+	width:50px;
+	height:23.5px;
 	position:absolute;
-	right: 10px;
-	bottom: 10px;
-}
-.setThemeTop {
-	position:relative;
-	top: 47px;
+	right: 5px;
+	top: 20px;
 }
 .homeButton {
 	width:100%;
+	position:absolute;
+	left: 5px;
+	top: 20px;
+	font-size:1.3rem;
 }

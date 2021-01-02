@@ -3,13 +3,22 @@ import { getAllPostIds, getPostData } from '../../lib/fphotos';
 import Link from 'next/link'
 import Head from 'next/head'
 import SetTheme from '../../components/SetTheme'
+import ImageGallery from 'react-image-gallery';
 
-export default function Post({ postData }) {
-	let imgsrc = '/fphotos/'+postData.id+'.jpg'
+export default function Post({ postData, images }) {
 	let previousPhotoId = "/fphoto/"+postData.previous
 	let nextPhotoId = '/fphoto/' + postData.next
 	if (postData.next == '') nextPhotoId = '/photo?#feature' 
 	if (postData.previous == '') previousPhotoId = '/photo#feature' 
+
+	const displayImage = (images.length < 2)
+	? <img src={images[0].original} alt={postData.title} />
+	: <ImageGallery 
+		items={images} 
+		showThumbnails={false}
+		thumbnailPosition={'bottom'}
+	/>
+	
 	return (
 
 		<Layout>
@@ -23,7 +32,7 @@ export default function Post({ postData }) {
 				<span className="photoAuthor">
 					by {postData.author} ({postData.news}, {postData.id})
 				</span>
-				<img src={imgsrc} alt={postData.title} />
+				{displayImage}
 				<div className="buttons">
 					<div className="previous">
 						<Link href={previousPhotoId}>
@@ -35,7 +44,7 @@ export default function Post({ postData }) {
 							<a>next</a>
 						</Link>
 					</div>
-					<Link href="/photo">
+					<Link href="/photo#feature">
 						<a className="gohome">View full list</a>
 					</Link>
 					<br />
@@ -57,11 +66,22 @@ export async function getStaticPaths() {
 	};
 }
 
+import fs from 'fs'
+import path from 'path'
+
 export async function getStaticProps({ params }) {
+	const fileNames = fs.readdirSync(path.join(process.cwd(),'public','fphotos',params.id));
+	const images = fileNames.map(file => {
+		return {
+			original: '/fphotos/'+params.id+'/'+file,
+			thumbnail: '/fphotos/'+params.id+'/'+file
+		}
+	})
 	const postData = getPostData(params.id);
 	return {
 		props: {
 			postData,
+			images,
 		},
 	};
 }

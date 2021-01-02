@@ -8,6 +8,8 @@ import SetTheme from '../components/SetTheme.js'
 
 export default function Home() {
 	return (
+		<>
+		<SetTheme />
 		<div className="container">
 			<Head>
 				<title>Pulitzer Prize for Photography</title>
@@ -24,7 +26,6 @@ export default function Home() {
 					<Link href="/photo/1942">View in chronological order</Link>
 				</p>
 			</main> 
-			<SetTheme />
 
 			<style jsx>{`
 				.container {
@@ -167,5 +168,6 @@ export default function Home() {
 				}
 			`}</style>
 		</div>
+		</>
 	);
 }
