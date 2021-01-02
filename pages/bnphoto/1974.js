@@ -3,13 +3,42 @@ import { getAllPostIds, getPostData } from '../../lib/bnphotos';
 import Link from 'next/link'
 import Head from 'next/head'
 import SetTheme from '../../components/SetTheme'
+import ImageGallery from 'react-image-gallery';
 
-export default function Post({ postData }) {
-	let imgsrc = '/bnphotos/'+postData.id+'.jpg'
+export default function Post({  }) {
+	let postData = 	{
+		id : '1974',
+		author : 'Anthony K. Roberts',
+		news:'freelance photographer',
+		title: 'Fatal Hollywood Drama',
+		previous: '1973',
+		next: '1975',
+	}
 	let previousPhotoId = "/bnphoto/"+postData.previous
 	let nextPhotoId = '/bnphoto/' + postData.next
 	if (postData.next == '') nextPhotoId = '/photo?#breakingnews' 
 	if (postData.previous == '') previousPhotoId = '/photo#breakingnews' 
+	
+	
+	const images = [
+	  {
+		original: '/bnphotos/1974/1974.jpg/',
+		thumbnail: '/bnphotos/1974/1974.jpg/',
+	  },
+	  {
+		original: '/bnphotos/1974/1974(2).jpg/',
+		thumbnail: '/bnphotos/1974/1974(2).jpg/',
+	  },
+	  {
+		original: '/bnphotos/1974/1974(3).jpg/',
+		thumbnail: '/bnphotos/1974/1974(3).jpg/',
+	  },
+	  {
+		original: '/bnphotos/1974/1974(4).jpg/',
+		thumbnail: '/bnphotos/1974/1974(4).jpg/',
+	  },
+	];
+
 	return (
 
 		<Layout>
@@ -23,7 +52,11 @@ export default function Post({ postData }) {
 				<span className="photoAuthor">
 					by {postData.author} ({postData.news}, {postData.id})
 				</span>
-				<img src={imgsrc} alt={postData.title} />
+				<ImageGallery 
+					items={images} 
+					showThumbnails={false}
+					thumbnailPosition={'bottom'}
+				/>
 				<div className="buttons">
 					<div className="previous">
 						<Link href={previousPhotoId}>
@@ -49,19 +82,19 @@ export default function Post({ postData }) {
 	);
 }
 
-export async function getStaticPaths() {
-	const paths = getAllPostIds();
-	return {
-		paths,
-		fallback: false,
-	};
-}
+// export async function getStaticPaths() {
+// 	const paths = getAllPostIds();
+// 	return {
+// 		paths,
+// 		fallback: false,
+// 	};
+// }
 
-export async function getStaticProps({ params }) {
-	const postData = getPostData(params.id);
-	return {
-		props: {
-			postData,
-		},
-	};
-}
+// export async function getStaticProps({ params }) {
+// 	const postData = getPostData(params.id);
+// 	return {
+// 		props: {
+// 			postData,
+// 		},
+// 	};
+// }

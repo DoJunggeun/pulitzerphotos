@@ -14,7 +14,7 @@ export default function Post({ postData }) {
 
 		<Layout>
 			<Head>
-				<title>{postData.id}</title>
+				<title>{postData.title}</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<SetTheme />
@@ -23,7 +23,7 @@ export default function Post({ postData }) {
 				<span className="photoAuthor">
 					by {postData.author} ({postData.news}, {postData.id})
 				</span>
-				<img src={imgsrc} alt={postData.id} />
+				<img src={imgsrc} alt={postData.title} />
 				<div className="buttons">
 					<div className="previous">
 						<Link href={previousPhotoId}>
