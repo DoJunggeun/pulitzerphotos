@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import SetTheme from '../../components/SetTheme'
 import ImageGallery from 'react-image-gallery';
+import Buttons from '../../components/Buttons'
 
 export default function Post({ postData, images }) {
 	let previousPhotoId = "/bnphoto/"+postData.previous
@@ -33,25 +34,7 @@ export default function Post({ postData, images }) {
 					by {postData.author} ({postData.news}, {postData.id})
 				</span>
 				{displayImage}
-				<div className="buttons">
-					<div className="previous">
-						<Link href={previousPhotoId}>
-							<a className="gohome">previous</a>
-						</Link>
-					</div>
-					<div className="next">
-						<Link href={nextPhotoId}>
-							<a>next</a>
-						</Link>
-					</div>
-					<Link href="/photo#breakingnews">
-						<a className="gohome">View full list</a>
-					</Link>
-					<br />
-					<Link href="/">
-						<a className="gohome">Go home</a>
-					</Link>
-				</div>
+				<Buttons nextPhotoId={nextPhotoId} previousPhotoId={previousPhotoId}/>
 			</div>
 		</Layout>
 			

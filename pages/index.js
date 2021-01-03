@@ -9,13 +9,13 @@ import SetTheme from '../components/SetTheme.js'
 export default function Home() {
 	return (
 		<>
-		<SetTheme />
 		<div className="container">
 			<Head>
 				<title>Pulitzer Prize for Photography</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			
+			<SetTheme />
+
 
 			<main>
 				<h1 className="title">Pulitzer Prize Photos</h1>

@@ -27,16 +27,15 @@ export default function Photos() {
 
 	return (
 		<>
-			<div className="homeButton">
-				<Link href="/">Go Home</Link>
-			</div>
 			<SetTheme />
 			<div className="container">
 				<Head>
 					<title>Pulitzer Prize for Photography</title>
 					<link rel="icon" href="/favicon.ico" />
 				</Head>
-				
+			<div className="homeButton">
+				<Link href="/">Go Home</Link>
+			</div>
 					<h1 className="title">Pulitzer Prize Photos</h1>
 					<div className="photolist" id="photos">
 						<h3>for Photography (1942-1967)</h3>

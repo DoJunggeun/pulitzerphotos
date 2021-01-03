@@ -3,6 +3,7 @@ import { getAllPostIds, getPostData } from '../../lib/photos';
 import Link from 'next/link'
 import Head from 'next/head'
 import SetTheme from '../../components/SetTheme'
+import Buttons from '../../components/Buttons'
 
 export default function Post({ postData }) {
 	let imgsrc = '/photos/'+postData.id+'.jpg'
@@ -46,25 +47,7 @@ export default function Post({ postData }) {
 					by {postData.author} ({postData.news}, {postData.id})
 				</span>
 				<img src={imgsrc} alt={postData.title} />
-				<div className="buttons">
-					<div className="previous">
-						<Link href={previousPhotoId}>
-							<a className="gohome">previous</a>
-						</Link>
-					</div>
-					<div className="next">
-						<Link href={nextPhotoId}>
-							<a>next</a>
-						</Link>
-					</div>
-					<Link href="/photo#photos">
-						<a className="gohome">View full list</a>
-					</Link>
-					<br />
-					<Link href="/">
-						<a className="gohome">Go home</a>
-					</Link>
-				</div>
+				<Buttons nextPhotoId={nextPhotoId} previousPhotoId={previousPhotoId}/>
 			</div>
 		</Layout>
 	);
