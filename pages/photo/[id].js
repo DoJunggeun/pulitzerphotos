@@ -13,6 +13,7 @@ let shareButton =
 			style={{right:0}}>
 			Share URL
 	</button>
+let primerCSS = <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
 
 
 export default function Post({ postData }) {
@@ -52,7 +53,6 @@ export default function Post({ postData }) {
 			<Head>
 				<title>{postData.title}</title>
 				<link rel="icon" href="/favicon.ico" />
-				<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
 			</Head>
 			<SetTheme />
 			<div className="content">
