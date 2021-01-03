@@ -4,8 +4,21 @@ import Link from 'next/link'
 import Head from 'next/head'
 import SetTheme from '../../components/SetTheme'
 import Buttons from '../../components/Buttons'
+import { useRouter } from 'next/router'
+
+let shareButton =
+	<button className="btn tooltipped tooltipped-s m-2 p-2 border" 
+			data-clipboard-text={'hi'}
+			aria-label="URL copied!"
+			style={{right:0}}>
+			Share URL
+	</button>
+
 
 export default function Post({ postData }) {
+	const router = useRouter()
+	let thisPage = router.asPath;
+	let subject = 'photos'
 	let imgsrc = '/photos/'+postData.id+'.jpg'
 	let previousPhotoId = "/photo/"+postData.previous
 	let nextPhotoId = '/photo/' + postData.next
@@ -39,6 +52,7 @@ export default function Post({ postData }) {
 			<Head>
 				<title>{postData.title}</title>
 				<link rel="icon" href="/favicon.ico" />
+				<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
 			</Head>
 			<SetTheme />
 			<div className="content">
@@ -47,7 +61,13 @@ export default function Post({ postData }) {
 					by {postData.author} ({postData.news}, {postData.id})
 				</span>
 				<img src={imgsrc} alt={postData.title} />
-				<Buttons nextPhotoId={nextPhotoId} previousPhotoId={previousPhotoId}/>
+				
+
+				<Buttons 
+					nextPhotoId={nextPhotoId} 
+					previousPhotoId={previousPhotoId} 
+					subject={subject}
+				/>
 			</div>
 		</Layout>
 	);

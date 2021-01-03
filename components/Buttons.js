@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export default function Buttons({ previousPhotoId, nextPhotoId }) {
+export default function Buttons({ previousPhotoId, nextPhotoId, subject }) {
 	return (
 		<div className="buttons">
 			<Link href={previousPhotoId}>
@@ -10,7 +10,7 @@ export default function Buttons({ previousPhotoId, nextPhotoId }) {
 				</div>
 			</Link>
 
-			<Link href="/photo#photos">
+			<Link href={"/photo#"+subject}>
 				<div className="next">
 					<span>{'📄'}</span>
 				</div>

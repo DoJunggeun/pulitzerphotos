@@ -7,6 +7,7 @@ import ImageGallery from 'react-image-gallery';
 import Buttons from '../../components/Buttons'
 
 export default function Post({ postData, images }) {
+	let subject = 'breakingnews'
 	let previousPhotoId = "/bnphoto/"+postData.previous
 	let nextPhotoId = '/bnphoto/' + postData.next
 	if (postData.next == '') nextPhotoId = '/photo?#breakingnews' 
@@ -34,7 +35,11 @@ export default function Post({ postData, images }) {
 					by {postData.author} ({postData.news}, {postData.id})
 				</span>
 				{displayImage}
-				<Buttons nextPhotoId={nextPhotoId} previousPhotoId={previousPhotoId}/>
+				<Buttons 
+					nextPhotoId={nextPhotoId} 
+					previousPhotoId={previousPhotoId} 
+					subject={subject}
+				/>
 			</div>
 		</Layout>
 			
