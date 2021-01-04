@@ -11,6 +11,7 @@
     "@primer/css": "^15.2.0",
     "clipboard": "^2.0.6",
     "next": "^10.0.0",
+    "next-absolute-url": "^1.2.2",
     "react": "16.13.1",
     "react-dark-mode-toggle": "0.0.10",
     "react-dom": "16.13.1",

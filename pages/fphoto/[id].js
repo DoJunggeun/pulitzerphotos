@@ -25,8 +25,11 @@ export default function Post({ postData, images }) {
 
 		<Layout>
 			<Head>
-				<title>{postData.title}</title>
+				<title>{postData.id.slice(0,4)+' '+postData.title}</title>
 				<link rel="icon" href="/favicon.ico" />
+				<meta property="og:title" content={postData.title} />
+				<meta property="og:description" content={postData.id+'\'s Pulitzer Prize for Feature Photography : '+postData.title} />
+				<meta property="og:image" content={images[0].original} />
 			</Head>
 			<SetTheme />
 			<div className="content">

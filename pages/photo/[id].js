@@ -8,17 +8,15 @@ import { useRouter } from 'next/router'
 
 let shareButton =
 	<button className="btn tooltipped tooltipped-s m-2 p-2 border" 
-			data-clipboard-text={'hi'}
+			data-clipboard-text='ㅋㅋ'
 			aria-label="URL copied!"
 			style={{right:0}}>
-			Share URL
+			Share URL : {'ㅋㅋ'}
 	</button>
 let primerCSS = <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
 
 
 export default function Post({ postData }) {
-	const router = useRouter()
-	let thisPage = router.asPath;
 	let subject = 'photos'
 	let imgsrc = '/photos/'+postData.id+'.jpg'
 	let previousPhotoId = "/photo/"+postData.previous
@@ -51,8 +49,12 @@ export default function Post({ postData }) {
 	return (
 		<Layout>
 			<Head>
-				<title>{postData.title}</title>
+				<title>{postData.id.slice(0,4)+' '+postData.title}</title>
 				<link rel="icon" href="/favicon.ico" />
+				<meta property="og:title" content={postData.title} />
+				<meta property="og:description" content={postData.id+'\'s Pulitzer Prize for Photography : '+postData.title} />
+				<meta property="og:image" content={imgsrc} />
+
 			</Head>
 			<SetTheme />
 			<div className="content">
@@ -61,7 +63,6 @@ export default function Post({ postData }) {
 					by {postData.author} ({postData.news}, {postData.id})
 				</span>
 				<img src={imgsrc} alt={postData.title} />
-				
 
 				<Buttons 
 					nextPhotoId={nextPhotoId} 
